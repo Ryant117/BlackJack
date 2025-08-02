@@ -143,9 +143,11 @@ public class Blackjack {
                 } else
                     break;
             } else if (choice.equalsIgnoreCase("Double")) {
-                if (hasHit) {
+                if (hasHit)
                     System.out.println("You can't double after a hit");
-                } else if (bankroll >= wager) {
+                if(hasSplit)
+                    System.out.println("You can't double after Split");
+                else if (bankroll >= wager) {
                     isDoubleDown = true;
                     bankroll -= wager;
                     playerCards.add(shoe.dealCard());
